@@ -1,0 +1,13 @@
+# IntelliJ
+*.iml
+.idea/
+
+# Gradle files
+.gradle/
+build/
+
+#MacOS DS_Store
+**/.DS_Store
+
+# Build folders
+build/
