@@ -1,11 +1,10 @@
 # Command pattern 
 
 Command pattern decouples the invoker and the receiver by encapsulating an action (command). 
-It wraps the request into a specific object (command) that has all the information necessary to perform its task.
+It wraps the request into a specific object (command) with all the information necessary to perform its task.
 
-You can think of it as the next stage of refactoring where at first the code is extracted to a separate method, and 
+You can think of it as the next stage of refactoring at first the code is extracted to a separate method, and 
 then moved to a separate object (taking the arguments needed to execute the request).
-
 
 ## Entities
 
@@ -14,7 +13,7 @@ then moved to a separate object (taking the arguments needed to execute the requ
 - Invoker - uses the `Command` to perform an action. May keep track of the commands, so they can be undone 
   (unexeuted)
 - Receiver - object used by the `Command` to complete its task - contains the actual steps to perform the action.
-- Client - creates a concrete command instance and binds it with the `Receiver` and sets it in the `Invoker`
+- Client - creates a concrete `Command` instance, binds it with the `Receiver` and passes it to the `Invoker` instance.
 
 ## When to use the Command Pattern?
 
