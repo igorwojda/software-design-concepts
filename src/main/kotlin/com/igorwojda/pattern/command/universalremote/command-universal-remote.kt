@@ -1,4 +1,6 @@
-//Client
+package com.igorwojda.pattern.command.universalremote
+
+// Client
 fun main() {
     // Receiver
     val lamp = Lamp()
@@ -22,10 +24,10 @@ fun main() {
 }
 
 private class UniversalRemote(
-    private val turnOnLightCommand: TurnOnLightCommand
+    private val turnOnLightCommand: TurnOnLightCommand,
     private val turnOffLightCommand: TurnOffLightCommand,
 ) {
-    private val lastExecutedCommand: Command? = null
+    private var lastExecutedCommand: Command? = null
 
     fun turnOnButtonClick() {
         executeCommand(turnOnLightCommand)
@@ -42,7 +44,7 @@ private class UniversalRemote(
 
     public fun undoButtonClick()
     {
-        lastExecutedCommand.unexecute()
+        lastExecutedCommand?.unexecute()
         lastExecutedCommand = null
     }
 }

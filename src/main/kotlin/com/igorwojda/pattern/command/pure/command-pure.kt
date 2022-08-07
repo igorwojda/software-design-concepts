@@ -1,4 +1,6 @@
-//Client
+package com.igorwojda.pattern.command.pure
+
+// Client
 fun main() {
     val receiver = Receiver()
 
@@ -16,7 +18,7 @@ fun main() {
 }
 
 private class Invoker(
-    private val command1: Command1
+    private val command1: Command1,
     private val command2: Command2,
 ) {
 
@@ -42,10 +44,6 @@ private class Command1(private val receiver: Receiver) : Command {
 private class Command2(private val receiver: Receiver) : Command {
     override fun execute() {
         receiver.performAction2()
-    }
-
-    override fun unexecute() {
-        receiver.performAction1()
     }
 }
 
