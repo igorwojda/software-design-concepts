@@ -1,14 +1,20 @@
 # Command pattern 
 
-Command pattern decouples the invoker and the receiver by encapsulating an action (command).
+Command pattern decouples the invoker and the receiver by encapsulating an action (command). 
+It wraps the request into a specific object (command) that has all the information necessary to perform its task.
+
+You can think of it as the next stage of refactoring where at first the code is extracted to a separate method, and 
+then moved to a separate object (taking the arguments needed to execute the request).
+
 
 ## Entities
 
 - Command interface - contains execute methods. It is the core of the contract.
-- Command implementation - creates a binding between the receiver(s) and an action (and optionally undo action)
-- Invoker - instructs the command to perform an action. May keep track of the commands, so they can be undone 
+- Concrete Command - creates a binding between the `Receiver` and an action (and optionally undo action)
+- Invoker - uses the `Command` to perform an action. May keep track of the commands, so they can be undone 
   (unexeuted)
-- Receiver - contains the actual steps to perform the action.
+- Receiver - object used by the `Command` to complete its task - contains the actual steps to perform the action.
+- Client - creates a concrete command instance and binds it with the `Receiver` and sets it in the `Invoker`
 
 ## When to use the Command Pattern?
 
@@ -28,3 +34,4 @@ Command pattern decouples the invoker and the receiver by encapsulating an actio
 
 - [Command Abstract](command-abstract.kt) - minimal code sample demonstrating command pattern  
 - [Universal Remote](command-universal-remote.kt) - example of command pattern with undo functionality
+- 
