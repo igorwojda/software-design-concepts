@@ -75,6 +75,10 @@ private class TurnOffLightCommand(private val lamp: Lamp) : Command {
 }
 
 private class Lamp {
-    fun turnOn() {}
-    fun turnOff() {}
+    fun turnOn() {
+        println("turnOn")
+    }
+    fun turnOff() {
+        println("turnOff")
+    }
 }

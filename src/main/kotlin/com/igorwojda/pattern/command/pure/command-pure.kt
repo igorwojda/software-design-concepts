@@ -48,6 +48,11 @@ private class Command2(private val receiver: Receiver) : Command {
 }
 
 private class Receiver {
-    fun performAction1() {}
-    fun performAction2() {}
+    fun performAction1() {
+        println("performAction1")
+    }
+
+    fun performAction2() {
+        println("performAction2")
+    }
 }
