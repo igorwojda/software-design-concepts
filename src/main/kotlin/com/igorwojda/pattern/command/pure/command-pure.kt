@@ -13,8 +13,8 @@ fun main() {
     )
 
     // Usage
-    invoker.action1()
-    invoker.action2()
+    invoker.performAction1()
+    invoker.performAction2()
 }
 
 private class Invoker(
@@ -22,11 +22,11 @@ private class Invoker(
     private val command2: Command2,
 ) {
 
-    fun action1() {
+    fun performAction1() {
         command1.execute()
     }
 
-    fun action2() {
+    fun performAction2() {
         command2.execute()
     }
 }
