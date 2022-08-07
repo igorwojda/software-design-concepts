@@ -1,10 +1,11 @@
+//Client
 fun main() {
     // Receiver
-    val light = Light()
+    val lamp = Lamp()
 
     // Commands
-    val turnOnLightCommand = TurnOnLightCommand(light)
-    val turnOffLightCommand = TurnOffLightCommand(light)
+    val turnOnLightCommand = TurnOnLightCommand(lamp)
+    val turnOffLightCommand = TurnOffLightCommand(lamp)
 
     // Invoker
     val universalRemote = UniversalRemote(
@@ -17,7 +18,7 @@ fun main() {
     universalRemote.turnOffButtonClick()
 
     // Undo
-    universalRemote.undoLastCommand()
+    universalRemote.undoButtonClick()
 }
 
 private class UniversalRemote(
@@ -39,7 +40,7 @@ private class UniversalRemote(
         lastExecutedCommand = command
     }
 
-    public undoLastCommand()
+    public fun undoButtonClick()
     {
         lastExecutedCommand.unexecute()
         lastExecutedCommand = null
@@ -51,27 +52,27 @@ private interface Command {
     fun unexecute()
 }
 
-private class TurnOnLightCommand(private val light: Light) : Command {
+private class TurnOnLightCommand(private val lamp: Lamp) : Command {
     override fun execute() {
-        light.turnOn()
+        lamp.turnOn()
     }
 
     override fun unexecute() {
-        light.turnOff()
+        lamp.turnOff()
     }
 }
 
-private class TurnOffLightCommand(private val light: Light) : Command {
+private class TurnOffLightCommand(private val lamp: Lamp) : Command {
     override fun execute() {
-        light.turnOff()
+        lamp.turnOff()
     }
 
     override fun unexecute() {
-        light.turnOn()
+        lamp.turnOn()
     }
 }
 
-private class Light {
+private class Lamp {
     fun turnOn() {}
     fun turnOff() {}
 }
