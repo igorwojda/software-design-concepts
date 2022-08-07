@@ -4,8 +4,8 @@ Repo contains samples of various coding patterns written in Kotlin.
 
 ## Design Patterns
 
-Design patterns are the solutions to the common problems in software design.
-
+Design patterns are the solutions to the common problems in software design:
+- Command
     
 ## How to open this project
 
