@@ -36,5 +36,5 @@ then moved to a separate object (taking the arguments needed to execute the requ
 - [Command Abstract](pure/command-pure.kt) - minimal code sample demonstrating command pattern  
 - [Universal Remote](universalremote/command-universal-remote.kt) - example of command pattern with undo functionality
 - [Command Processor](commandprocessor/commandprocesor.kt) - commands are processed using coroutine-based FiFo 
-  queue
+  queue. Receiver is passed as param to `execute` method.
 
