@@ -9,17 +9,27 @@ import kotlinx.coroutines.launch
 import kotlin.random.Random
 import java.util.concurrent.Executors
 
-/**
+/*
+ * Command pattern is often used with que-based command processor.
+ *
+ * The Processor can queue and execute commands according to its internal logic, but from the Invoker
+ * point of view, it doesn’t really matter. The Receiver is moved from a command to the command processor,
+ * thus the commands will only take its parameters, and the rest will be handled by command processor when
+ * calling the execute().
+ *
  * Src https://asvid.github.io/kotlin-command-pattern
  */
 
 fun main() {
-    val firstInvoker = Invoker()
-    val secondInvoker = Invoker()
+    val commandProcessor = CommandProcessor()
 
     // no Receiver here, just command parameters
-    firstInvoker.setCommand(FirstCommand(1))
-    secondInvoker.setCommand(SecondCommand("2"))
+    val firstCommand = FirstCommand(1)
+    val firstInvoker = Invoker(commandProcessor, firstCommand)
+
+    // no Receiver here, just command parameters
+    val secondCommand = SecondCommand("2")
+    val secondInvoker = Invoker(commandProcessor, secondCommand)
 
     // invoking actions 10x
     repeat(10) {
@@ -60,8 +70,16 @@ private class Receiver {
     }
 }
 
-// Commands are stored in FIFO queue in the form of `Channel`
-private object CommandProcessor {
+// Invoker without changes
+private class Invoker(private val commandProcessor: CommandProcessor, val command: Command) {
+    fun performAction() {
+        // Instead of executing command directly it is processed (executed) via command processor
+        commandProcessor.process(command)
+    }
+}
+
+// Commands are stored in FIFO queue in the form of coroutine Channel
+private class CommandProcessor {
     private val commands = Channel<Command>()
 
     // using separate Scopes for adding and executing commands solves blocking one by another
@@ -96,18 +114,5 @@ private object CommandProcessor {
         for (command in channel) {
             command.execute(receiver)
         }
-    }
-}
-
-// Invoker without changes
-private class Invoker {
-    private lateinit var command: Command
-
-    fun setCommand(command: Command) {
-        this.command = command
-    }
-
-    fun performAction() {
-        CommandProcessor.process(command)
     }
 }
