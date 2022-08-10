@@ -42,7 +42,7 @@ private class UniversalRemote(
         lastExecutedCommand = command
     }
 
-    public fun undoButtonClick()
+    fun undoButtonClick()
     {
         lastExecutedCommand?.unexecute()
         lastExecutedCommand = null
@@ -56,29 +56,27 @@ private interface Command {
 
 private class TurnOnLightCommand(private val lamp: Lamp) : Command {
     override fun execute() {
-        lamp.turnOn()
+        lamp.switch(true)
     }
 
     override fun unexecute() {
-        lamp.turnOff()
+        lamp.switch(false)
     }
 }
 
 private class TurnOffLightCommand(private val lamp: Lamp) : Command {
     override fun execute() {
-        lamp.turnOff()
+        lamp.switch(false)
     }
 
     override fun unexecute() {
-        lamp.turnOn()
+        lamp.switch(true)
     }
 }
 
 private class Lamp {
-    fun turnOn() {
-        println("turnOn")
-    }
-    fun turnOff() {
-        println("turnOff")
+    fun switch(on: Boolean) {
+        val state = if (on) "ON" else "OFF"
+        println("turning lamp $state")
     }
 }
