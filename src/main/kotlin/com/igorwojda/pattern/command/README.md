@@ -1,7 +1,9 @@
 # Command pattern 
 
-Command pattern decouples the invoker and the receiver by encapsulating an action (command). 
-It wraps the request into a specific object (command) with all the information necessary to perform its task.
+Command pattern decouples the invoker and the receiver by encapsulating an action (command).
+It encapsulates the request and allows it to be moved and reused. It facilitates refactoring because it is 
+easy to replace one command with another, or to change the internal implementation without affecting the clients of it.
+
 
 You can think of it as the next stage of refactoring at first the code is extracted to a separate method, and 
 then moved to a separate object (taking the arguments needed to execute the request).
