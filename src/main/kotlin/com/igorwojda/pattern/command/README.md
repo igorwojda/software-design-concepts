@@ -11,7 +11,7 @@ then moved to a separate object (taking the arguments needed to execute the requ
 - Command interface - contains execute methods. It is the core of the contract.
 - Concrete Command - creates a binding between the `Receiver` and an action (and optionally undo action)
 - Invoker - uses the `Command` to perform an action. May keep track of the commands, so they can be undone 
-  (unexeuted)
+  (unexecuted)
 - Receiver - object used by the `Command` to complete its task - contains the actual steps to perform the action.
 - Client - creates a concrete `Command` instance, binds it with the `Receiver` and passes it to the `Invoker` instance.
 
