@@ -108,7 +108,7 @@ private class CommandProcessor {
         }
     }
 
-    // private `extension function` that allows multiple consumers take commands from the same queue
+    // private extension function that allows multiple consumers take commands from the same queue
     // each command is executed only once after execution is done, the processor is taking next item from the queue
     private fun CoroutineScope.launchProcessor(channel: ReceiveChannel<Command>) = launch {
         for (command in channel) {
