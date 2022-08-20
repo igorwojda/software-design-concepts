@@ -1,4 +1,4 @@
-# Command pattern 
+# Command Pattern
 
 Command pattern decouples the invoker and the receiver by encapsulating an action (command).
 It encapsulates the request and allows it to be moved and reused. It facilitates refactoring because it is 
@@ -17,7 +17,7 @@ then moved to a separate object (taking the arguments needed to execute the requ
 - Receiver - object used by the `Command` to complete its task - contains the actual steps to perform the action.
 - Client - creates a concrete `Command` instance, binds it with the `Receiver` and passes it to the `Invoker` instance.
 
-## When to use the Command Pattern?
+## When To Use The Command Pattern?
 
 - When the requests need to be handled in certain time occurrences and according to different triggers situations
 - When the client and the service provider needs to be decoupled
