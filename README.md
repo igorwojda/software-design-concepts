@@ -1,4 +1,4 @@
-# patterns
+# Software Design Concepts
 
 Repo contains samples of various practices and patterns written in Kotlin.
 
