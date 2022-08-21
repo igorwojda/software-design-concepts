@@ -1,50 +1,38 @@
-# Inversion Of Control (IoC) Pattern
+# Inversion Of Control Principle (IoC)
 
-Inversion and/or redirecting control to external handler/controller.
+Design principle that transfers (inverts) different kinds of controls from one object to another.
 
-## Dependency Injection (DI) Example
+The control refer to any additional responsibilities a class has, other than its main responsibility. This includes
+control over the flow of an application, and control over the flow of an object creation.
 
-The `Dependency Injection` pattern is a more specific version of `Inversion Of Control ` pattern, and is all about
-removing dependencies from the code.
+## Metaphor
 
-Let's consider example where application has a text-editor component that provides spell checking. The
-standard code would look something like this:
+Bob drives a car to the work place. This means that Bob controls the car. The Inversion Of Control Principle
+suggests to invert the control. Instead of driving the car himself, Bob hires a driver that will drive the car.
+Control is inverted from Bob the driver.
 
-```kotlin
-// Class
-class TextEditor {
-    private val spellChecker = SpellChecker() // Class creates the Dependency internally
+## Pros
 
-    // use the spellChecker
-}
+- Allows to switch between different implementations of a particular class at runtime
+- Increases the modularity of the program
+- Manages an object’s life-cycle (some objects can be singletons, while we can create others per
+  request)
 
-// Client using the class
-val textEditor = TextEditor(spellChecker)
-```
+##
 
-The `TextEditor` class has control over which `SpellChecker` implementation to use, because the `SpellChecker` is
-instantiated directly in the `TextEditor` class.
+We can achieve Inversion of Control through various mechanisms such as: Strategy design pattern, Service Locator
+pattern, , and Dependency Injection (DI).
 
-> **Note**: Dependency between the TextEditor and the SpellChecker exists.
+We're going to look at DI next.
 
-```kotlin
-// Class
-class TextEditor(private val spellChecker: SpellChecker) {
+The IoC in object-oriented programming can be applied in many ways. Some of which are:
 
-    // use the spellChecker
-}
-
-// Client using the class
-val spellChecker = SpellChecker()
-val textEditor = TextEditor(spellChecker)  // Client is passing the dependency
-```
-
-The client creating the `TextEditor` class has control over which `SpellChecker` implementation to use because it is
-providing (injecting) the dependency into the `TextEditor` instance.
-
-Control over dependency creation was transferred (inverted) from the class (`TextEditor`) to the client.
-
-| Tables   |  Class  |  Client |
-|----------|:-------:|--------:|
-| Standard | Control |         |
-| IoC      |   no    | Control |
+- [Dependency injection](../../pattern/dependencyinjection/README.md) pattern - object creation control is transferred
+  from class to dependency injector
+- [Strategy](../../pattern/strategy/README.md) pattern - class behaviour control is transferred from class to the
+  strategy implementation
+- [Service locator](../../pattern/servicelocator/README.md) pattern - service retrieval control is transferred
+  from class to the service locator
+- [Factory](../../pattern/factory/README.md) pattern - object creation control is transferred
+  from class to a factory
+- Event based UI - application flow is transferred from code to the UI (flow is event driven) 

@@ -1,0 +1,3 @@
+# Singleton
+
+Design pattern that ...

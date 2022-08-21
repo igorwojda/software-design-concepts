@@ -1,6 +1,7 @@
 # Software Design Concepts
 
-Repo contains samples of various practices and patterns written in Kotlin.
+Repo contains samples of various practices, patterns and guidelines in context of software engineering.
+All the code samples are written in Kotlin.
 
 ## Design Principles
 
@@ -17,9 +18,13 @@ not provide implementation guidelines and are not bound to any programming langu
 
 ## Design Patterns
 
-Design patterns provide low-level solutions (implementation guidelines) for the common, real-world problems in software
+Design patterns provide low-level solutions (recommend implementation) for the common, real-world problems in software
 design:
 
+- [Dependency Injection](src/main/kotlin/com/igorwojda/pattern/dependencyinjection/README.md)
+- [Service Locator](src/main/kotlin/com/igorwojda/pattern/servicelocator/README.md)
+- [Singleton](src/main/kotlin/com/igorwojda/pattern/singleton/README.md)
+- [Strategy](src/main/kotlin/com/igorwojda/pattern/strategy/README.md)
 - [Command](src/main/kotlin/com/igorwojda/pattern/command/README.md)
 
 ## How to open this project
