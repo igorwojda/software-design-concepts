@@ -1,3 +1,3 @@
 
-rootProject.name = "Patterns"
+rootProject.name = "Software Design Concepts"
 
