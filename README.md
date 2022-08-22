@@ -5,8 +5,7 @@ All the code samples are written in Kotlin.
 
 ## Design Principles
 
-Design principles provide high-level guidelines (abstract principles) to design better software applications. They do
-not provide implementation guidelines and are not bound to any programming language:
+Design principles provide high-level, language agonist guidelines to design better software applications.
 
 - [SOLID](src/main/kotlin/com/igorwojda/principle/solid/README.md)
     - [Single Responsibility Principle (SRP)](src/main/kotlin/com/igorwojda/principle/solid/singleresponsibility/README.md)
