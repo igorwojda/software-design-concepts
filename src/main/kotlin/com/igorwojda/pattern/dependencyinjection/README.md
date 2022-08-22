@@ -36,8 +36,8 @@ Here is the dependencies graph:
 
 ```mermaid
 graph TD;
-    TextEditor-->SpellChecker
-    TextEditor-->TextFormatter
+    TextEditor-->|depends on|SpellChecker
+    TextEditor-->|depends on|TextFormatter
 ```
 
 The `TextEditor` is directly dependent on the `SpellChecker` and `TextFormatter`. The `TextEditor` class has control
@@ -118,10 +118,11 @@ The above example presents the manual dependency injection. Let’s consider a m
 
 ```mermaid
 graph TD;
-    E-->C;
-    E-->D
-    C-->A
-    D-->B
+    E-->|depends on|C;
+    E-->|depends on|D
+    C-->|depends on|A
+    D-->|depends on|B
+    classDef someclass fill:#f96;
 ```
 
 The `Class A` and `Class B` have no dependencies. The `Class C` depends on `Class A`. The `Class D` depends on
