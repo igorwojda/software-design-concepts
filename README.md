@@ -28,7 +28,7 @@ design:
 
 ## Guides
 
-= [Use Case](src/main/kotlin/com/igorwojda/guide/usecase/README.md)
+- [Use Case](src/main/kotlin/com/igorwojda/guide/usecase/README.md)
 
 ## How to open this project
 
