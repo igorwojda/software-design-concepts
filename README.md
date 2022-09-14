@@ -26,6 +26,10 @@ design:
 - [Strategy](src/main/kotlin/com/igorwojda/pattern/strategy/README.md)
 - [Command](src/main/kotlin/com/igorwojda/pattern/command/README.md)
 
+## Guides
+
+= [Use Case](src/main/kotlin/com/igorwojda/guide/usecase/README.md)
+
 ## How to open this project
 
 1. Run [IntelliJ Idea](https://www.jetbrains.com/idea/)
