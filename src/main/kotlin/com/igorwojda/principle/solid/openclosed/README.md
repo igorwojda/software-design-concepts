@@ -2,18 +2,18 @@
 
 The Open/Closed Principle is the `O` of [SOLID](../README.md).
 
-This principle states that code should be **open** for extension and **closed** for modificaiton.
+This principle states that code should be **open** for extension and **closed** for modification.
 
 Open for extension means that behavior of the class\module can be extended.
 
-Closed for modificaiton means that behaviour change of the class\module must be achievable without changing this
-class\module.
+Closed for modification means that behaviour change (extension) of the class\module must be achievable without changing
+the existing code.
 
-Let's looks at few examples to better understand this principle.
+Let look at few examples to better understand this principle.
 
 ## Example 1 - DrawAllShapes Method
 
-Let's looks at class diagram method:
+Let look at class diagram method:
 
 ```mermaid
 classDiagram
@@ -26,7 +26,7 @@ class Square()
 class Circle()
 ```
 
-Drawing a shape requires a `when` block with all of the possible shapes in the `drawAllShapes` function:
+Drawing a shape requires a `when` block with all the possible shapes in the `drawAllShapes` function:
 
 ```kotlin
 fun drawAllShapes(shapes: List<Shape>) {
