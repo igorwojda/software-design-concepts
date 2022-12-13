@@ -29,7 +29,7 @@ class TextEditor {
 }
 
 // Client using the class
-val textEditor = TextEditor(spellChecker)
+val textEditor = TextEditor()
 ```
 
 Here is the dependencies graph:
